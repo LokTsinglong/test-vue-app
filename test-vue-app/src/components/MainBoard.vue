@@ -32,22 +32,32 @@
 </template>
 
 <script>
+// SFC（Single File Component）单文件组件的脚本部分
 export default {
+    // 定义组件名称
     name:'MainBoard',
+
+    // 为什么每个单文件都必须要有一个 data() 函数？
+    // 因为data()函数定义组件私有响应式状态。保证每个组件实例拥有独立数据副本（避免多实例共享数据污染）
     data(){
         return{
-            index:0,
+            // 用于判断当前点击的导航栏
+            index:0, 
+            //从 Vuex 获取用户名
             username:this.$store.state.username,
             isshow:true,
             welcomeChars: [], // 用于存储每个字符的数组  
         }
     },
+    // 存放组件方法（事件处理、逻辑操作）
     methods:{
         change(num){
             this.index = num
             this.isshow =false
         }
     },
+    // 计算属性（computed）是 Vue.js 中的一种特殊属性，用于根据其他数据计算出一个新的值
+    // 计算属性是基于它们的依赖进行缓存的，只有在相关依赖发生变化时才会重新计算
     computed: {  
         welcomeMessage() {  
             return this.welcomeChars.join(''); // join方法用于将数组（或一个类数组对象）的所有元素连接到一个字符串中，中间不是空格符
@@ -59,6 +69,10 @@ export default {
     mounted() {  
         const message = "欢迎使用智能问答系统!";  
         let index = 0;  
+        // 每隔指定时间（150ms）重复执行回调函数。
+        // setInterval(回调函数, 间隔时间)
+        // function(){} 函数化简 （）=> { }  箭头函数
+        // 这里的回调函数是一个匿名函数，表示每隔150ms执行一次
         const interval = setInterval(() => {  
         if (index < message.length) {  
             this.welcomeChars.push(message[index]);  
