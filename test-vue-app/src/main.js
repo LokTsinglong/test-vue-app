@@ -9,8 +9,8 @@ import router from './router'
 // 路由配置
 import store from './store'
 // Vuex状态管理
-import ElementUI from 'element-ui'; // 2.1引入结构 UI组件库
-import 'element-ui/lib/theme-chalk/index.css'; // 2.2引入样式
+import ElementPlus from 'element-plus'; // 2.1引入结构 UI组件库
+import 'element-plus/dist/index.css'; // 2.2引入样式
 
 // 全局配置
 Vue.config.productionTip = false
@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
 // 挂载axios到Vue原型上
 // 这样在组件中就可以通过 this.$axios 来访问 axios 实例
-Vue.use(ElementUI)
+Vue.use(ElementPlus)
 // 注册ElementUI
 
 // // Vue实例初始化

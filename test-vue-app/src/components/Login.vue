@@ -47,7 +47,11 @@
             </div>
         </div>
         <el-dialog :visible.sync="dialogVisible" customClass="dialog">
+            <!-- 当 dialogVisible 值为 true 时，弹窗显示 -->
+            <!-- customClass="dialog" 自定义CSS样式 -->
             <el-form :model="form" class="login">
+                <!-- 表单容器 -->
+                <!-- model="form"绑定表单数据对象 -->
                 <h2 class="title">用户注册</h2>
                 <el-form-item label="用户名" label-width="100px">
                     <el-input v-model="form.username" style="width:280px" placeholder="请输入用户名"></el-input>
@@ -65,6 +69,11 @@
 </template>
 
 <script>
+// 为什么要在这里设计export default？
+// 因为Vue组件是一个对象，export default是将这个对象导出，以便在其他地方使用
+// 例如在main.js中引入这个组件并挂载到Vue实例上
+// 这样做的好处是可以将组件的逻辑和样式分离，提高代码的可读性和可维护性
+// 此处export 的Login 将会在router/index.js中被引入
 export default {
     name:'Login',
     data(){
